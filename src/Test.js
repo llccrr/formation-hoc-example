@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { hoc } from "./hoc";
+import React, { Component } from 'react';
+import { hocCpt } from './hoc';
 
 class PureTest extends Component {
   render() {
@@ -12,4 +12,4 @@ class PureTest extends Component {
   }
 }
 
-export const Test = hoc(PureTest);
+export const Test = hocCpt(PureTest);

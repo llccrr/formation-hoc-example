@@ -1,15 +1,21 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-export const hoc = PureTest =>
+export const hocCpt = PureTest =>
   class extends Component {
     state = {
       seconds: 0
     };
 
     componentDidMount() {
-      this.interval = setInterval(() => {
-        this.setState(state => ({ seconds: state.seconds + 1 }));
-      }, 1000);
+      const { delay } = this.props;
+
+      this.interval = setTimeout(
+        () =>
+          setInterval(() => {
+            this.setState(state => ({ seconds: state.seconds + 1 }));
+          }, 1000),
+        delay || 0
+      );
     }
 
     render() {
